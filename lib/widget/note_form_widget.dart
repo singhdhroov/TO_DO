@@ -29,13 +29,20 @@ class NoteFormWidget extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
+              buildTitle(),
+              SizedBox(height: 8),
+              buildDescription(),
+              SizedBox(height: 16),
               Row(
                 children: [
-                  Switch(
-                    value: isImportant ?? false,
-                    onChanged: onChangedImportant,
-                  ),
-                  Expanded(
+                  Opacity(
+                      opacity: 0.0,
+                      child: Switch(
+                        value: isImportant ?? false,
+                        onChanged: onChangedImportant,
+                      )),
+                  Opacity(
+                    opacity: 0.0,
                     child: Slider(
                       value: (number ?? 0).toDouble(),
                       min: 0,
@@ -46,27 +53,25 @@ class NoteFormWidget extends StatelessWidget {
                   )
                 ],
               ),
-              buildTitle(),
-              SizedBox(height: 8),
-              buildDescription(),
-              SizedBox(height: 16),
             ],
           ),
         ),
       );
 
   Widget buildTitle() => TextFormField(
+        textCapitalization: TextCapitalization.characters,
         maxLines: 1,
         initialValue: title,
         style: TextStyle(
-          color: Colors.white70,
+          color: Colors.black,
           fontWeight: FontWeight.bold,
           fontSize: 24,
         ),
         decoration: InputDecoration(
-          border: InputBorder.none,
+          focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.blueAccent, width: 3.0)),
           hintText: 'Title',
-          hintStyle: TextStyle(color: Colors.white70),
+          hintStyle: TextStyle(color: Colors.black),
         ),
         validator: (title) =>
             title != null && title.isEmpty ? 'The title cannot be empty' : null,
@@ -76,11 +81,12 @@ class NoteFormWidget extends StatelessWidget {
   Widget buildDescription() => TextFormField(
         maxLines: 5,
         initialValue: description,
-        style: TextStyle(color: Colors.white60, fontSize: 18),
+        style: TextStyle(color: Colors.black, fontSize: 18),
         decoration: InputDecoration(
-          border: InputBorder.none,
+          focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.blueAccent, width: 1.0)),
           hintText: 'Type something...',
-          hintStyle: TextStyle(color: Colors.white60),
+          hintStyle: TextStyle(color: Colors.black),
         ),
         validator: (title) => title != null && title.isEmpty
             ? 'The description cannot be empty'

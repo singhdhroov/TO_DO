@@ -5,6 +5,7 @@ import 'package:sqflite_database_example/model/note.dart';
 import 'package:sqflite_database_example/page/edit_note_page.dart';
 import 'package:sqflite_database_example/page/note_detail_page.dart';
 import 'package:sqflite_database_example/widget/note_card_widget.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class NotesPage extends StatefulWidget {
   @override
@@ -42,7 +43,9 @@ class _NotesPageState extends State<NotesPage> {
         appBar: AppBar(
           title: Text(
             'Notes',
-            style: TextStyle(fontSize: 24),
+            style: GoogleFonts.ptSerif(
+              fontSize: 25,
+            ),
           ),
           actions: [Icon(Icons.search), SizedBox(width: 12)],
         ),
@@ -52,12 +55,15 @@ class _NotesPageState extends State<NotesPage> {
               : notes.isEmpty
                   ? Text(
                       'No Notes',
-                      style: TextStyle(color: Colors.white, fontSize: 24),
+                      style: GoogleFonts.ptSerif(
+                        fontSize: 25,
+                        color: Colors.white,
+                      ),
                     )
                   : buildNotes(),
         ),
         floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.black,
+          backgroundColor: Colors.blue,
           child: Icon(Icons.add),
           onPressed: () async {
             await Navigator.of(context).push(

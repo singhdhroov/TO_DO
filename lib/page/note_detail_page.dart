@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:sqflite_database_example/db/notes_database.dart';
 import 'package:sqflite_database_example/model/note.dart';
 import 'package:sqflite_database_example/page/edit_note_page.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class NoteDetailPage extends StatefulWidget {
   final int noteId;
@@ -49,22 +50,25 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
                   children: [
                     Text(
                       note.title,
-                      style: TextStyle(
+                      style: GoogleFonts.ptSerif(
+                        fontSize: 30,
                         color: Colors.white,
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
                     SizedBox(height: 8),
                     Text(
-                      DateFormat.yMMMd().format(note.createdTime),
+                      DateFormat.yMMMEd().format(note.createdTime),
                       style: TextStyle(color: Colors.white38),
                     ),
                     SizedBox(height: 8),
                     Text(
                       note.description,
-                      style: TextStyle(color: Colors.white70, fontSize: 18),
-                    )
+                      style: GoogleFonts.ptSerif(
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),
+                    ),
                   ],
                 ),
               ),

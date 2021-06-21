@@ -3,7 +3,7 @@ final String tableNotes = 'notes';
 class NoteFields {
   static final List<String> values = [
     /// Add all fields
-    id, isImportant, number, title, description, time
+    id, title, isImportant, number, description, time
   ];
 
   static final String id = '_id';

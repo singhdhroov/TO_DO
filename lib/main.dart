@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sqflite_database_example/page/notes_page.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         themeMode: ThemeMode.dark,
         theme: ThemeData(
           primaryColor: Colors.black,
-          scaffoldBackgroundColor: Colors.blueGrey.shade900,
+          scaffoldBackgroundColor: Colors.black,
           appBarTheme: AppBarTheme(
             backgroundColor: Colors.transparent,
             elevation: 0,

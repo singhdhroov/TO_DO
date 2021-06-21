@@ -32,8 +32,6 @@ class NotesDatabase {
     await db.execute('''
 CREATE TABLE $tableNotes ( 
   ${NoteFields.id} $idType, 
-  ${NoteFields.isImportant} $boolType,
-  ${NoteFields.number} $integerType,
   ${NoteFields.title} $textType,
   ${NoteFields.description} $textType,
   ${NoteFields.time} $textType
@@ -50,7 +48,7 @@ CREATE TABLE $tableNotes (
     // final values =
     //     '${json[NoteFields.title]}, ${json[NoteFields.description]}, ${json[NoteFields.time]}';
     // final id = await db
-    //     .rawInsert('INSERT INTO table_name ($columns) VALUES ($values)');
+    //    .rawInsert('INSERT INTO table_name ($columns) VALUES ($values)');
 
     final id = await db.insert(tableNotes, note.toJson());
     return note.copy(id: id);

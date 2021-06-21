@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:sqflite_database_example/model/note.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-final _lightColors = [
+final lightColors = [
   Colors.amber.shade300,
   Colors.lightGreen.shade300,
   Colors.lightBlue.shade300,
@@ -24,10 +25,9 @@ class NoteCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     /// Pick colors from the accent colors based on index
-    final color = _lightColors[index % _lightColors.length];
+    final color = lightColors[index % lightColors.length];
     final time = DateFormat.yMMMd().format(note.createdTime);
     final minHeight = getMinHeight(index);
-
     return Card(
       color: color,
       child: Container(
@@ -44,9 +44,9 @@ class NoteCardWidget extends StatelessWidget {
             SizedBox(height: 4),
             Text(
               note.title,
-              style: TextStyle(
-                color: Colors.black,
+              style: GoogleFonts.ptSerif(
                 fontSize: 20,
+                color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),
             ),
